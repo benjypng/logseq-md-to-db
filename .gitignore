@@ -1,5 +1,3 @@
-logseq.bak/*
-!logseq.bak/import.py
-.DS_Store
 __pycache__/
+.pytest_cache/
 import-report.txt

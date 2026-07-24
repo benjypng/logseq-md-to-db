@@ -64,11 +64,10 @@ class LogseqCli:
         return payload.get("data", {})
 
     def query(self, edn, inputs=None):
-        payload = "{:query " + edn
+        args = ["query", "--query", edn]
         if inputs is not None:
-            payload += " :inputs " + json.dumps(inputs)
-        payload += "}"
-        data = self.run("query", payload)
+            args += ["--inputs", json.dumps(inputs)]
+        data = self.run(*args)
         if isinstance(data, list):
             return data
         if isinstance(data, dict):
